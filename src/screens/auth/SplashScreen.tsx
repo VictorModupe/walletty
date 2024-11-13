@@ -14,7 +14,7 @@ const SplashScreen =()=>{
     const {navigate}: NavigationProp<SplashNavigationType> = useNavigation();
 
     const blurhash = 
-        " " 
+        "L9LW|qniy?tR$gj@S$WWuPf+QmaK" 
 
     useEffect(()=>{
         //setTimeout(()=>{

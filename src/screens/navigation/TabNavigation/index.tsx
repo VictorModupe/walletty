@@ -20,10 +20,18 @@ const TabNavigation = () => {
               headerShown: false,
               tabBarIcon: ({focused}) => {
                 let IconName;
-              }
-            }
-        )
-    }
+
+                if(route.name === "Home"){
+                  IconName = "home";
+                } else if (route.name === "Market"){
+                  IconName = "stats-chart-outline";
+                } else if (route.name === "Search"){
+                  IconName = "search-outline";
+                } else if (route.name === "News"){
+                  IconName = "stats";
+                }
+              },
+            })}
     >
         <Tab.Screen name="Home" component={HomeNavigation} />
         <Tab.Screen name="Market" component={MarketNavigation} />

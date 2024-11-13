@@ -1,11 +1,19 @@
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from "styled-components/native";
 import { StatusBar } from 'expo-status-bar';
 import RootNavigation from './src/screens/navigation/RootNavigation';
+import useCacheResources from './hooks/useCacheResources';
+import {useUserStore} from "./store/useUserStore";
 
 const App = () => {
-  const [session, setSession] = useState(true);
+  const [session, user] = useUserStore();
+  const isLoadingComplete = useCacheResources;
+  useEffect(()=> console.log(user, session), [user, session]);
+  
+  if (!isLoadingComplete){
+    return null;
+  } 
   
   return (
     <Container>
