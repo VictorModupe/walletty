@@ -2,4 +2,4 @@
 
 type SplashNavigationType = {
     Welcome: undefined;
-}
+};

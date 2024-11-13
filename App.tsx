@@ -1,12 +1,22 @@
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
+import styled from "styled-components/native";
+import { StatusBar } from 'expo-status-bar';
+import RootNavigation from './src/screens/navigation/RootNavigation';
 
 const App = () => {
+  const [session, setSession] = useState(true);
+  
   return (
-    <View className='bg-orange-500 flex-1 justify-center items-center'>
-      <Text className='text-white text-3xl font-semibold'></Text>
-    </View>
-  )
-}
+    <Container>
+      <StatusBar style='auto'/>
+      <RootNavigation />
+    </Container>
+  );
+};
 
 export default App;
+
+const Container = styled(View)`
+  flex: 1;
+`;
