@@ -19,7 +19,6 @@ import {useUserStore} from "@/store/useUserStore";
 
 
 const {width, height} = Dimensions.get("window");
-
 const LoginScreen =()=> {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -46,6 +45,7 @@ const LoginScreen =()=> {
         }   catch (e) {
             console.log(e);
         }
+
     }
 
     return (
@@ -54,9 +54,19 @@ const LoginScreen =()=> {
             <View className="absolute z-50 h-full w-full justify-center items-center">
                 <View className="h-full w-full justify-center items-center bg-black opacity-[0.45]"></View>
 
-
+            <View className='absolute'>
+                <ActivityIndicator size="large" color="white" />
+            </View>
             </View>
         )}
+        <View className='justify-center items-center relative flex-1'>
+            <View
+                className='justify-center w-full px-4 space-y-4'
+                style={{height:height * 0.75,
+                }}
+        >
+            </View>
+        </View>
      );
 }
 
@@ -76,6 +86,28 @@ const LoginScreen =()=> {
 
 
 
+                    {/* Email and Password Text Input */}
+                    <Animated.View
+                        className="py-8 space-y-8"
+                        entering={FadeInDown.duration(100).delay(200).springify()}
+                        >
+                            {/* Email */}
+                            <View className='border-2 border-gray-400 rounded-lg'>
+                                <TextInput
+                                className='p-4'
+                                onChangeText={(text) => setEmail(text)}
+                                value={email}
+                                placeholder='Email'
+                                autoCapitalize='none'
+                            />
+                            </View>
+
+                            {/* Password */}
+                            <View className='border-2 border-gray-400 rounded-lg'>
+                                <TextInput
+                                 className='p-4'
+                                 onChangeText={(text) => setPassword(text)}
+                            </View>
 
 
 
@@ -86,16 +118,30 @@ const LoginScreen =()=> {
 
 
 
-
-
-
-
-
-
-
-
-
-
+                        {/* Password */}
+                        <View className='border-2 border-gray-400 rounded-lg'>
+                            <TextInput 
+                                className='p-4'
+                                onChangeText={(text)=> setPassword(text)}
+                                value={password}
+                                placeholder='Password'
+                                autoCapitalize='none'
+                            />
+                        </View>
+                    </Animated.View>
+                    {/* Login Button */}
+                    {/* 3rd Party Auth */}
+                    <View className='w-full justify-normal'>
+                        <Animated.View 
+                            className="w-full justify-start"
+                            entering={FadeInDown.duration(100).delay(300).springify()}
+                            >
+                                <View className='pb-6'>
+                                    <Button title={"Login"} action={() => signInWithEmail()} />
+                                </View>
+                        </Animated.View>
+                    </View>
+    
 
 
 {/*Emall and Password Text Input */} 

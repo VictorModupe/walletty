@@ -43,16 +43,21 @@ const SplashScreen =()=>{
                                 </View>
                             </View>
                     </Animated.View>
-                    <Animated.View className="flex-row justify-center items-center"
+                    <Animated.View 
+                    className="flex-row justify-center items-center"
                     entering={FadeInRight.duration(100).delay(200).springify()}>
-                        <Text className="text-neutral-600 text-xl leading-[60px] pl-1">
+                        <Text 
+                            className="text-neutral-600 text-xl leading-[60px] pl-1"
+                            style={{fontFamily:"PlusJakartaSans"}}
+                            >
                             BIT
                         </Text>
-                        <Text className="text-[#31aca3] text-xl leading-[60px] pl-1">
+                        <Text 
+                            className="text-[#31aca3] text-xl leading-[60px] pl-1"
+                            style={{fontFamily:"PlusJakartaSans"}}
+>
                             VALUE
                         </Text>
-
-
                     </Animated.View>
                 </View>
             </SafeAreaView>
