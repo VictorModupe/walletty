@@ -7,7 +7,7 @@ import useCacheResources from './hooks/useCacheResources';
 import {useUserStore} from "./store/useUserStore";
 
 const App = () => {
-  const [session, user] = useUserStore();
+  const {session, user} = useUserStore();
   const isLoadingComplete = useCacheResources;
   useEffect(()=> console.log(user, session), [user, session]);
   

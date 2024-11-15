@@ -1,7 +1,7 @@
 import {create} from "zustand";
-import {persist, createJSONSStorage} from "zustand/middleware";
-import { AsyncStorage } from "react-native-async-storage/async-storage";
-import {Session, User} from "@suoabase/supabase-js";
+import {persist, createJSONStorage} from "zustand/middleware";
+import  AsyncStorage  from "@react-native-async-storage/async-storage";
+import {Session, User} from "@supabase/supabase-js";
 
 interface UserStore {
     user: User | null;
@@ -9,7 +9,7 @@ interface UserStore {
     session: Session | null
     setSession: (session: Session | null) => void
     isLoggedIn:Boolean;
-    SetIsLoggedIn:(isLoggedIn: Boolean) => void
+    setIsLoggedIn:(isLoggedIn: boolean) => void
 }
 
 export const useUserStore = create(
@@ -20,12 +20,12 @@ export const useUserStore = create(
             isLoggedIn: false,
             IsOnboarded: false,
             setUser: (user: User | null) => set((state)=> ({user})),
-            setIsLoggedIn: (isLoggedIn: Boolean) => set((state)=> ({isLoggedIn})),
-            setSession:(session Session | null) => set((state) => ({session})),
+            setIsLoggedIn: (isLoggedIn: boolean) => set((state)=> ({isLoggedIn})),
+            setSession:(session: Session | null) => set((state) => ({session})),
         }),
         {
-            name: "fintechcrypto-store",
-            storage: createJSONSStorage(()=> AsyncStorage),
+            name: "crypto-store",
+            storage: createJSONStorage(()=> AsyncStorage),
         }
     )
-)
+);

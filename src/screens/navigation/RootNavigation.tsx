@@ -14,9 +14,16 @@ const RootNavigation = () => {
     const [session, setSession] = useState(true); 
   return (
     <NavigationContainer>
-        <Stack.Navigator>
-            {
-                session ? (
+        <Stack.Navigator
+            screenOptions={{
+                headerShown: false,
+                ...TransitionPresets.SlideFromRightIOS,
+                animationEnabled: true,
+                gestureEnabled:true,
+                gestureDirection: "horizontal",
+            }}
+        >
+            {session && session.user ? (
                     <Stack.Screen 
                     name='Home' 
                     component={TabNavigation} 
@@ -29,9 +36,7 @@ const RootNavigation = () => {
             }
         </Stack.Navigator>
         <View>
-            <Text>
-                RootNavigation
-            </Text>
+          
         </View>
     </NavigationContainer>
   );

@@ -2,7 +2,7 @@
   "expo": {
     "name": "mobileapp",
     "slug": "mobileapp",
-    "main": "./app.tsx",
+    "main": "./app.js",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -17,6 +17,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.mobile.bitvalue",  
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
